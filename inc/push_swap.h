@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:33:27 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/19 15:37:55 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/20 17:24:44 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,36 @@
 // include
 
 # include <unistd.h>
+# include <limits.h>
 # include "libft.h"
 # include "ft_printf.h"
 # include "get_next_line.h"
 
 // struct
+typedef struct s_node
+{
+	int				value;
+	int				index;
+	struct s_node	*next;
+}	t_node;
+
 typedef struct s_stack
 {
-	long			nbr;
-	long			index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
+	t_node	*a;
+	t_node	*b;
+	int		size;
 }	t_stack;
 
+// error.c
+void	ft_error(void);
+// parse.c
+int		ft_parser(int argc, char **argv, t_stack *stack);
+int		ft_if_input_2(char **argv, t_stack *stack);
+// parse_utils.c
+int		ft_is_duplicate(t_node *stack_a, int num);
+long	ft_atol(const char *str);
+int		ft_is_number(const char *str);
+void	ft_free_split(char **str);
 
 // operations_1.c
 

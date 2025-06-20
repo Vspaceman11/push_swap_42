@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:28:46 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/20 17:20:05 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/20 17:24:54 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int	ft_is_number(char *str)
 	}
 	return (1);
 }
+
 void	ft_free_split(char **str)
 {
 	int	i;
