@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:33:27 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/23 14:22:05 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/23 16:37:44 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,22 @@ void	assign_indexes(t_node *stack_a);
 void	ft_free_stack(t_stack *stack);
 
 // operations_1.c
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
+void	ss(t_stack *stack);
+void	pa(t_stack *stack);
+void	pb(t_stack *stack);
 
 // operations_2.c
+void	ra(t_stack *stack);
+void	rb(t_stack *stack);
+void	rr(t_stack *stack);
+void	rra(t_stack *stack);
+void	rrb(t_stack *stack);
 
 // operations_3.c
-
+void	rrr(t_stack *stack);
+void	swap(t_node *stack);
+void	rotate(t_node **head);
+void	reverse_rotate(t_node **head);
 #endif
