@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:33:27 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/20 17:24:44 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/23 13:52:01 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ typedef struct s_stack
 // error.c
 void	ft_error(void);
 // parse.c
-int		ft_parser(int argc, char **argv, t_stack *stack);
-int		ft_if_input_2(char **argv, t_stack *stack);
+void	ft_parser(int argc, char **argv, t_stack *stack);
+void	ft_if_input_2(char **tmp, t_stack *stack);
+void	ft_if_input_many_args(int argc, char **argv, t_stack *stack);
+
 // parse_utils.c
 int		ft_is_duplicate(t_node *stack_a, int num);
 long	ft_atol(const char *str);
