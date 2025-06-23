@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:33:27 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/23 13:52:01 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/23 14:22:05 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ int		ft_is_duplicate(t_node *stack_a, int num);
 long	ft_atol(const char *str);
 int		ft_is_number(const char *str);
 void	ft_free_split(char **str);
+
+// utils.c
+int		ft_is_sorted(t_node *stack_a);
+void	assign_indexes(t_node *stack_a);
+void	ft_free_stack(t_stack *stack);
 
 // operations_1.c
 
