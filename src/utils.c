@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 13:54:47 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/24 15:21:53 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:29:12 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_is_sorted(t_node *stack_a)
 	return (1);
 }
 
-void	assign_indexes(t_node *stack_a)
+void	ft_assign_indexes(t_node *stack_a)
 {
 	t_node	*current;
 	t_node	*min_node;

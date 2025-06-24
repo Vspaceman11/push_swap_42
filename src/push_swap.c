@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 13:24:13 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/24 15:43:08 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:57:44 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,21 @@ void	print_stack(t_node *stack, char name)
 int	main(int argc, char **argv)
 {
 	t_stack	*stack;
+	int	size;
 
 	stack = ft_calloc(1, sizeof(t_stack));
 	if (!stack)
 		ft_error();
 	ft_parser(argc, argv, stack);
-	if (ft_stack_size(stack->a) <= 5)
+	size = ft_stack_size(stack->a);
+	if (ft_stack_size(stack->a) == 2)
+		ft_sort_two(stack);
+	else if (ft_stack_size(stack->a) == 3)
+		ft_sort_three(stack);
+	else if (ft_stack_size(stack->a) <= 5)
 		ft_sort_small(stack);
+	else
+		turk_sort(stack);
 	print_stack(stack->a, 'A');
 	print_stack(stack->b, 'B');
 	// test_operations();
