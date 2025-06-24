@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 13:54:47 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/23 14:58:46 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/24 15:21:53 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,34 @@ void	ft_free_stack(t_stack *stack)
 		}
 	}
 	free(stack);
+}
+
+void	ft_lstadd_back_node(t_node **lst, t_node *new_node)
+{
+	t_node	*current;
+
+	if (!lst || !new_node)
+		return ;
+	if (!*lst)
+	{
+		*lst = new_node;
+		return ;
+	}
+	current = *lst;
+	while (current->next)
+		current = current->next;
+	current->next = new_node;
+}
+
+int	ft_stack_size(t_node *stack)
+{
+	int	count;
+
+	count = 0;
+	while (stack)
+	{
+		count++;
+		stack = stack->next;
+	}
+	return (count);
 }

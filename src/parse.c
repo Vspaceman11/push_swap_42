@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:00:59 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/23 13:51:21 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/24 13:00:35 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_if_input_2(char **tmp, t_stack *stack)
 		new->value = (int)num;
 		new->index = -1;
 		new->next = NULL;
-		ft_lstadd_back(&stack->a, new);
+		ft_lstadd_back_node(&stack->a, new);
 		i++;
 	}
 }
@@ -61,7 +61,7 @@ void	ft_if_input_many_args(int argc, char **argv, t_stack *stack)
 		new->value = (int)num;
 		new->index = -1;
 		new->next = NULL;
-		ft_lstadd_back(&stack->a, new);
+		ft_lstadd_back_node(&stack->a, new);
 		i++;
 	}
 }
@@ -71,7 +71,7 @@ void	ft_parser(int argc, char **argv, t_stack *stack)
 	char	**tmp;
 
 	if (argc < 2)
-		return (ft_error(), 1);
+		ft_error();
 	if (argc == 2)
 	{
 		tmp = ft_split(argv[1], ' ');

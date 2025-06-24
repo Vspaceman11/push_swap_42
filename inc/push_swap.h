@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:33:27 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/23 16:37:44 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/24 15:33:15 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	ft_free_split(char **str);
 int		ft_is_sorted(t_node *stack_a);
 void	assign_indexes(t_node *stack_a);
 void	ft_free_stack(t_stack *stack);
+void	ft_lstadd_back_node(t_node **lst, t_node *new_node);
+int		ft_stack_size(t_node *stack);
 
 // operations_1.c
 void	sa(t_stack *stack);
@@ -73,4 +75,13 @@ void	rrr(t_stack *stack);
 void	swap(t_node *stack);
 void	rotate(t_node **head);
 void	reverse_rotate(t_node **head);
+
+// sort_small.c
+void	ft_sort_two(t_stack *stack);
+void	ft_sort_three(t_stack *stack);
+void	ft_sort_small(t_stack *stack);
+int		ft_find_position(t_node *stack, int value);
+int		ft_find_min(t_node *stack);
+
+
 #endif
