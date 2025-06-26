@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:32:54 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/23 16:15:33 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:53:54 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@ void	rrr(t_stack *stack)
 	ft_printf("rrr\n");
 }
 
+/**
+ * @brief Swap the first two nodes' values and indexes in the stack.
+ *
+ * Exchanges the value and index fields of the first two nodes in the stack.
+ * Does nothing if the stack has fewer than two nodes.
+ *
+ * @param stack Pointer to the head node of the stack.
+ */
 void	swap(t_node *stack)
 {
 	int	tmp_value;
@@ -34,6 +42,14 @@ void	swap(t_node *stack)
 	stack->next->index = tmp_index;
 }
 
+/**
+ * @brief Perform a rotate operation on a linked list.
+ *
+ * Moves the first node of the list to the end, effectively rotating the list
+ * up by one position. Does nothing if the list is empty or has one node.
+ *
+ * @param head Pointer to the pointer of the head node of the list.
+ */
 void	rotate(t_node **head)
 {
 	t_node	*first;
@@ -50,6 +66,14 @@ void	rotate(t_node **head)
 	first->next = NULL;
 }
 
+/**
+ * @brief Perform a reverse rotate on a linked list.
+ *
+ * Moves the last node of the list to the front, effectively rotating the
+ * list down by one position. Does nothing if the list is empty or has one node.
+ *
+ * @param head Pointer to the pointer of the head node of the list.
+ */
 void	reverse_rotate(t_node **head)
 {
 	t_node	*prev;

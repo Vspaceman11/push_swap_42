@@ -6,12 +6,22 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 13:54:47 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/24 16:29:12 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:53:08 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief Check if the stack is sorted in ascending order.
+ *
+ * Returns 1 if the stack is sorted (each value <= next value), or 0 if not.
+ * An empty stack or a single-node stack is considered sorted.
+ *
+ * @param stack_a Pointer to the head of the stack.
+ *
+ * @return int 1 if sorted, 0 otherwise.
+ */
 int	ft_is_sorted(t_node *stack_a)
 {
 	t_node	*current;
@@ -28,6 +38,14 @@ int	ft_is_sorted(t_node *stack_a)
 	return (1);
 }
 
+/**
+ * @brief Assign ascending indexes to nodes in stack 'a' based on their values.
+ *
+ * Iteratively finds the unindexed node with the smallest value and assigns it
+ * the next index, starting from 0. Stops when all nodes have been indexed.
+ *
+ * @param stack_a Pointer to the head of stack 'a'.
+ */
 void	ft_assign_indexes(t_node *stack_a)
 {
 	t_node	*current;
@@ -53,6 +71,14 @@ void	ft_assign_indexes(t_node *stack_a)
 	}
 }
 
+/**
+ * @brief Free all nodes in stacks 'a' and 'b' and the stack structure.
+ *
+ * Iterates through both stacks 'a' and 'b', frees all their nodes, and
+ * finally frees the stack structure itself.
+ *
+ * @param stack Pointer to the stack structure to be freed.
+ */
 void	ft_free_stack(t_stack *stack)
 {
 	t_node	*temp;
@@ -78,6 +104,15 @@ void	ft_free_stack(t_stack *stack)
 	free(stack);
 }
 
+/**
+ * @brief Add a new node at the end of a linked list.
+ *
+ * Appends new_node to the end of the list pointed to by lst. If the list
+ * is empty, new_node becomes the first element.
+ *
+ * @param lst Pointer to the pointer of the list head.
+ * @param new_node Pointer to the node to add at the end.
+ */
 void	ft_lstadd_back_node(t_node **lst, t_node *new_node)
 {
 	t_node	*current;
@@ -95,6 +130,15 @@ void	ft_lstadd_back_node(t_node **lst, t_node *new_node)
 	current->next = new_node;
 }
 
+/**
+ * @brief Calculate the size (number of nodes) of a stack.
+ *
+ * Counts and returns how many nodes are in the given linked list stack.
+ *
+ * @param stack Pointer to the head of the stack.
+ *
+ * @return int Number of nodes in the stack.
+ */
 int	ft_stack_size(t_node *stack)
 {
 	int	count;

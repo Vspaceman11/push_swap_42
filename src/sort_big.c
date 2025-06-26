@@ -6,12 +6,21 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 16:19:15 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/26 17:28:35 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:47:40 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief Rotate stack 'a' to bring the node with index 0 to the top.
+ *
+ * This function finds the node with index 0 in stack 'a' and rotates
+ * the stack either upwards (ra) or downwards (rra) to bring this node
+ * to the top with the minimal number of rotations.
+ *
+ * @param stack Pointer to the stack structure containing stack 'a'.
+ */
 void	ft_rotate_a_to_index_0(t_stack *stack)
 {
 	t_node	*current;
@@ -34,6 +43,15 @@ void	ft_rotate_a_to_index_0(t_stack *stack)
 			rra(stack);
 }
 
+/**
+ * @brief Pushes elements from stack A to B in sorted chunks.
+ *
+ * Uses a float ratio to determine value thresholds and pushes smaller
+ * elements to stack B. Larger elements are rotated to bottom in B if
+ * conditions match. Leaves 3 elements in A and sorts them.
+ *
+ * @param stack The stack structure with stacks A and B.
+ */
 static void	ft_swap_dirty(t_stack *stack)
 {
 	int		size;
@@ -60,6 +78,15 @@ static void	ft_swap_dirty(t_stack *stack)
 	ft_sort_three(stack);
 }
 
+/**
+ * @brief Sorts large stack using cost-based insertion method.
+ *
+ * Assigns indexes, pushes elements to stack B using sorted chunks,
+ * calculates optimal move costs, and reinserts them into stack A.
+ * Finishes by rotating A so that the smallest index is on top.
+ *
+ * @param stack The stack structure containing stacks A and B.
+ */
 void	ft_sort_big(t_stack *stack)
 {
 	t_node	*best;

@@ -6,12 +6,22 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:00:59 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/26 16:35:21 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:42:41 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief Parses and validates space-separated input in one argument.
+ *
+ * @param tmp Array of strings resulting from splitting argv[1].
+ * @param stack Pointer to the stack structure to be filled.
+ *
+ * This function checks each string in tmp for numeric validity, overflows, and
+ * duplicates. Valid integers are added as nodes to stack A. On error, frees tmp
+ * and exits the program.
+ */
 void	ft_if_input_2(char **tmp, t_stack *stack)
 {
 	int		i;
@@ -39,6 +49,17 @@ void	ft_if_input_2(char **tmp, t_stack *stack)
 	}
 }
 
+/**
+ * @brief Parses multiple numeric arguments and fills stack A.
+ *
+ * @param argc Number of command-line arguments.
+ * @param argv Array of argument strings.
+ * @param stack Pointer to the stack structure to be filled.
+ *
+ * This function validates and converts each argument from argv[1] to argv[i]
+ * into an integer. If any argument is not a number, overflows, or duplicates an
+ * existing value in stack A, the program exits with an error.
+ */
 void	ft_if_input_many_args(int argc, char **argv, t_stack *stack)
 {
 	int		i;
@@ -66,6 +87,18 @@ void	ft_if_input_many_args(int argc, char **argv, t_stack *stack)
 	}
 }
 
+/**
+ * @brief Parses the input arguments and fills stack A with valid integers.
+ *
+ * @param argc The number of arguments passed to the program.
+ * @param argv The argument values passed to the program.
+ * @param stack The stack structure to be filled with parsed integers.
+ *
+ * This function handles both types of inputs:
+ * 1. Single quoted string of numbers.
+ * 2. Multiple separate arguments.
+ * It splits the input, validates it, and fills the stack accordingly.
+ */
 void	ft_parser(int argc, char **argv, t_stack *stack)
 {
 	char	**tmp;
