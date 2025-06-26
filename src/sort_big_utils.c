@@ -6,34 +6,24 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 16:43:32 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/26 16:34:44 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:28:58 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_get_position_of_min_index(t_node *stack)
+t_node	*ft_get_node_with_min_index(t_node *stack)
 {
-	int		position;
-	int		min_position;
-	int		min_index;
-	t_node	*current;
+	t_node	*min;
 
-	current = stack;
-	position = 0;
-	min_position = 0;
-	min_index = INT_MAX;
-	while (current)
+	min = stack;
+	while (stack)
 	{
-		if (current->index < min_index)
-		{
-			min_index = current->index;
-			min_position = position;
-		}
-		current = current->next;
-		position++;
+		if (stack->index < min->index)
+			min = stack;
+		stack = stack->next;
 	}
-	return (min_position);
+	return (min);
 }
 
 int	ft_get_node_position(t_node *stack, t_node *target)

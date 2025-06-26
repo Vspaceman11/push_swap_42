@@ -6,11 +6,33 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 16:19:15 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/26 16:34:57 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:28:35 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_rotate_a_to_index_0(t_stack *stack)
+{
+	t_node	*current;
+	int		pos;
+	int		size;
+
+	current = stack->a;
+	pos = 0;
+	size = ft_stack_size(stack->a);
+	while (current && current->index != 0)
+	{
+		current = current->next;
+		pos++;
+	}
+	if (pos <= size / 2)
+		while (pos-- > 0)
+			ra(stack);
+	else
+		while (pos++ < size)
+			rra(stack);
+}
 
 static void	ft_swap_dirty(t_stack *stack)
 {
@@ -36,53 +58,6 @@ static void	ft_swap_dirty(t_stack *stack)
 			ra(stack);
 	}
 	ft_sort_three(stack);
-}
-
-int	ft_get_max_index_position(t_node *stack)
-{
-	int		max_index;
-	int		position;
-	int		i;
-	t_node	*current;
-
-	max_index = -1;
-	position = 0;
-	i = 0;
-	current = stack;
-	while (current)
-	{
-		if (current->index > max_index)
-		{
-			max_index = current->index;
-			position = i;
-		}
-		current = current->next;
-		i++;
-	}
-	return (position);
-}
-
-void	ft_push_back_to_a(t_stack *stack)
-{
-	int	position;
-	int	size;
-
-	while (stack->b)
-	{
-		size = ft_stack_size(stack->b);
-		position = ft_get_max_index_position(stack->b);
-		if (position <= size / 2)
-		{
-			while (position--)
-				rb(stack);
-		}
-		else
-		{
-			while (position++ < size)
-				rrb(stack);
-		}
-		pa(stack);
-	}
 }
 
 void	ft_sort_big(t_stack *stack)
