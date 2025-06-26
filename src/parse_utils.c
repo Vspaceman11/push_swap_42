@@ -6,14 +6,13 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:28:46 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/24 13:02:11 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/26 16:35:16 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-static	int	ft_cast_to_int(const char *str, long i)
+static long	ft_cast_to_int(const char *str, long i)
 {
 	long	result;
 

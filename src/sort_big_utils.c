@@ -6,13 +6,11 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 16:43:32 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/25 17:30:53 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/26 16:34:44 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
 
 int	ft_get_position_of_min_index(t_node *stack)
 {
@@ -78,7 +76,7 @@ int	ft_get_target_cost(t_node *a, int b_index, int size)
 		current = current->next;
 	}
 	if (!target)
-		target = get_node_with_min_index(a);
+		target = ft_get_node_with_min_index(a);
 	position = ft_get_node_position(a, target);
 	if (position <= size / 2)
 		return (position);
@@ -102,6 +100,3 @@ void	ft_calculate_costs(t_stack *stack)
 		current = current->next;
 	}
 }
-
-
-

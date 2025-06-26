@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:19:06 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/25 18:09:14 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/26 16:24:45 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,18 @@
 
 int	ft_get_chunk_count(t_stack *stack)
 {
-	// int	size;
+	int	size;
 
-	// size = ft_stack_size(stack->a);
-	// if (size <= 100)
-	// 	return (size / 20);
-	// else
-	// 	return (size / 25);
-	int	size = ft_stack_size(stack->a);
-	if (size <= 1)
-		return (1);
+	size = ft_stack_size(stack->a);
 	if (size <= 100)
-		return (5);
+		return (size / 5);
+	if (size <= 500)
+		return (size / 8);
 	else
-		return (11);
+		return (size / 11);
 }
 
-void	rotate_a_to_index_0(t_stack *stack)
+void	ft_rotate_a_to_index_0(t_stack *stack)
 {
 	t_node	*current;
 	int		pos;
@@ -52,7 +47,7 @@ void	rotate_a_to_index_0(t_stack *stack)
 			rra(stack);
 }
 
-t_node	*get_node_with_min_index(t_node *stack)
+t_node	*ft_get_node_with_min_index(t_node *stack)
 {
 	t_node	*min;
 

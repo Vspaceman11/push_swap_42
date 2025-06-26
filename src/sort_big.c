@@ -6,85 +6,39 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 16:19:15 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/25 18:30:28 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/26 16:34:57 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*get_max_node(t_node *stack)
+static void	ft_swap_dirty(t_stack *stack)
 {
-	t_node	*max = stack;
-	while (stack)
-	{
-		if (stack->index > max->index)
-			max = stack;
-		stack = stack->next;
-	}
-	return (max);
-}
-
-void	push_descending_to_b(t_stack *stack)
-{
-	t_node	*max;
 	int		size;
+	float	k;
+	int		val_min;
 
+	k = 0.8f;
 	size = ft_stack_size(stack->a);
-	while (size > 3)
+	while (ft_stack_size(stack->a) > 3)
 	{
-		max = get_max_node(stack->a);
-		int pos = ft_get_node_position(stack->a, max);
-		if (pos <= size / 2)
-			while (stack->a != max)
-				ra(stack);
+		val_min = size - (int)((float)(ft_stack_size(stack->a) * k));
+		if (val_min > size - 3)
+			val_min = size - 3;
+		if (stack->a->value <= val_min)
+			pb(stack);
+		else if (stack->a->value >= size - val_min && size <= 200)
+		{
+			pb(stack);
+			rb(stack);
+		}
 		else
-			while (stack->a != max)
-				rra(stack);
-		pb(stack);
-		size--;
+			ra(stack);
 	}
+	ft_sort_three(stack);
 }
 
-
-
-// static void	ft_update_chunk(int *min, int *max, int chunk_size, int size)
-// {
-// 	*min += chunk_size;
-// 	*max += chunk_size;
-// 	if (*max > size)
-// 		*max = size;
-// }
-
-// void	ft_push_chunks(t_stack *stack, int chunk_count)
-// {
-// 	int		size;
-// 	int		chunk_size;
-// 	int		current_max;
-// 	int		current_min;
-// 	t_node	*head;
-
-// 	size = ft_stack_size(stack->a);
-// 	chunk_size = size / chunk_count;
-// 	current_max = chunk_size;
-// 	current_min = 0;
-
-// 	while (stack->a)
-// 	{
-// 		head = stack->a;
-// 		if (head->index >= current_min && head->index < current_max)
-// 		{
-// 			pb(stack);
-// 			if (stack->b && stack->b->index < (current_min + current_max))
-// 				rb(stack);
-// 		}
-// 		else
-// 			ra(stack);
-// 		if (ft_stack_size(stack->b) >= current_max)
-// 			ft_update_chunk(&current_min, &current_max, chunk_size, size);
-// 	}
-// }
-
-int	get_max_index_position(t_node *stack)
+int	ft_get_max_index_position(t_node *stack)
 {
 	int		max_index;
 	int		position;
@@ -95,7 +49,6 @@ int	get_max_index_position(t_node *stack)
 	position = 0;
 	i = 0;
 	current = stack;
-
 	while (current)
 	{
 		if (current->index > max_index)
@@ -117,7 +70,7 @@ void	ft_push_back_to_a(t_stack *stack)
 	while (stack->b)
 	{
 		size = ft_stack_size(stack->b);
-		position = get_max_index_position(stack->b);
+		position = ft_get_max_index_position(stack->b);
 		if (position <= size / 2)
 		{
 			while (position--)
@@ -132,19 +85,12 @@ void	ft_push_back_to_a(t_stack *stack)
 	}
 }
 
-void	turk_sort(t_stack *stack)
+void	ft_sort_big(t_stack *stack)
 {
 	t_node	*best;
-	int	size;
 
 	ft_assign_indexes(stack->a);
-	// ft_push_chunks(stack, ft_get_chunk_count(stack));
-	// push_descending_to_b(stack);
-	while ((size = ft_stack_size(stack->a)) > 3)
-	{
-		pb(stack);
-	}
-	ft_sort_three(stack);
+	ft_swap_dirty(stack);
 	while (stack->b)
 	{
 		ft_calculate_costs(stack);
@@ -153,6 +99,5 @@ void	turk_sort(t_stack *stack)
 	}
 	while (stack->b)
 		pa(stack);
-	rotate_a_to_index_0(stack);
+	ft_rotate_a_to_index_0(stack);
 }
-

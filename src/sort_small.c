@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 14:08:32 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/24 15:50:34 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/26 15:52:36 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,9 @@ int	ft_find_position(t_node *stack, int value)
 
 void	ft_sort_small(t_stack *stack)
 {
-	int	size;
 	int	min;
 	int	position;
 
-	size = ft_stack_size(stack->a);
 	while (ft_stack_size(stack->a) > 3)
 	{
 		min = ft_find_min(stack->a);

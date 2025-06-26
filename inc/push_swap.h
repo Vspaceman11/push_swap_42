@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:33:27 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/25 17:31:09 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/26 16:27:09 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ typedef struct s_stack
 }	t_stack;
 
 // error.c
-void	ft_error(void);
+void	ft_error(t_stack *stack);
+void	ft_error_split(t_stack *stack, char **split);
 // parse.c
 void	ft_parser(int argc, char **argv, t_stack *stack);
 void	ft_if_input_2(char **tmp, t_stack *stack);
@@ -87,9 +88,9 @@ int		ft_find_min(t_node *stack);
 
 // sort_big.c
 void	ft_push_chunks(t_stack *stack, int chunk_count);
-int		get_max_index_position(t_node *stack);
+int		ft_get_max_index_position(t_node *stack);
 void	ft_push_back_to_a(t_stack *stack);
-void	turk_sort(t_stack *stack);
+void	ft_sort_big(t_stack *stack);
 
 // sort_big_utils.c
 int		ft_get_position_of_min_index(t_node *stack);
@@ -103,7 +104,7 @@ t_node	*ft_find_best_move(t_stack *stack);
 void	ft_do_best_move(t_stack *stack, t_node *target);
 // sort_big_utils_3.c
 int		ft_get_chunk_count(t_stack *stack);
-void	rotate_a_to_index_0(t_stack *stack);
-t_node	*get_node_with_min_index(t_node *stack);
+void	ft_rotate_a_to_index_0(t_stack *stack);
+t_node	*ft_get_node_with_min_index(t_node *stack);
 
 #endif
