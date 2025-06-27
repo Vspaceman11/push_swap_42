@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 16:19:15 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/27 17:08:53 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/27 17:09:57 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	ft_rotate_a_to_index_0(t_stack *stack)
  *
  * @param stack Pointer to the stack structure containing stacks a and b.
  */
-
 static void	ft_swap_dirty(t_stack *stack)
 {
 	int		size;
