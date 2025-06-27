@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 16:19:15 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/27 13:42:03 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/27 17:08:53 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,17 @@ void	ft_rotate_a_to_index_0(t_stack *stack)
 }
 
 /**
- * @brief Pushes elements from stack A to B in sorted chunks.
+ * @brief Pushes lower and upper indexed elements from stack a to b based on a
+ *        threshold and leaves 3 elements for final sorting.
  *
- * Uses a float ratio to determine value thresholds and pushes smaller
- * elements to stack B. Larger elements are rotated to bottom in B if
- * conditions match. Leaves 3 elements in A and sorts them.
+ * This function is used to simplify the sorting process by pushing elements
+ * with index less than or greater than a calculated threshold to stack b.
+ * Only the three elements with middle-range indexes are left in stack a.
+ * Final sorting of the remaining elements is done with ft_sort_three.
  *
- * @param stack The stack structure with stacks A and B.
+ * @param stack Pointer to the stack structure containing stacks a and b.
  */
+
 static void	ft_swap_dirty(t_stack *stack)
 {
 	int		size;
@@ -65,9 +68,9 @@ static void	ft_swap_dirty(t_stack *stack)
 		val_min = size - (int)((float)(ft_stack_size(stack->a) * k));
 		if (val_min > size - 3)
 			val_min = size - 3;
-		if (stack->a->value <= val_min)
+		if (stack->a->index <= val_min)
 			pb(stack, 0);
-		else if (stack->a->value >= size - val_min && size <= 200)
+		else if (stack->a->index >= size - val_min && size <= 200)
 		{
 			pb(stack, 0);
 			rb(stack);
@@ -79,13 +82,13 @@ static void	ft_swap_dirty(t_stack *stack)
 }
 
 /**
- * @brief Sorts large stack using cost-based insertion method.
+ * @brief Sorts a large stack using indexed cost-based move strategy.
  *
- * Assigns indexes, pushes elements to stack B using sorted chunks,
- * calculates optimal move costs, and reinserts them into stack A.
- * Finishes by rotating A so that the smallest index is on top.
+ * Assigns indexes to elements in stack a, pushes elements from a to b using
+ * a threshold, then iteratively calculates costs and performs optimal moves
+ * until stack b is empty. Finally, rotates stack a so that index 0 is on top.
  *
- * @param stack The stack structure containing stacks A and B.
+ * @param stack Pointer to the stack structure containing stacks a and b.
  */
 void	ft_sort_big(t_stack *stack)
 {
