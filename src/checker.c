@@ -6,16 +6,20 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:01:18 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/27 14:37:16 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/27 14:46:31 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /**
- * @brief Check if the input instruction is valid.
+ * @brief Checks if the given string is a valid stack operation.
  *
- * @param str Instruction string with newline.
+ * Compares the input string to all valid push_swap instructions.
+ * If the instruction is valid, returns 0.
+ * Otherwise, writes "Error\n" to stderr and returns 1.
+ *
+ * @param str The instruction string to validate (must end with '\n').
  * @return 0 if valid, 1 if invalid.
  */
 static int	ft_check_moves(char *str)
@@ -37,6 +41,16 @@ static int	ft_check_moves(char *str)
 	return (write(2, "Error\n", 6), 1);
 }
 
+/**
+ * @brief Executes additional stack operations not handled by ft_execute_move.
+ *
+ * This function handles rotate and reverse rotate operations for stacks a
+ * and b, as well as simultaneous operations ("rr", "rrr") based on the input
+ * string. It is called if the instruction was not handled in ft_execute_move.
+ *
+ * @param str   The instruction string (e.g., "rb\n", "rrr\n", etc.).
+ * @param stack Pointer to the t_stack structure containing both stacks.
+ */
 static void	ft_execute_move_2(char *str, t_stack *stack)
 {
 	if (ft_strncmp(str, "rb\n", 3) == 0)
@@ -58,10 +72,17 @@ static void	ft_execute_move_2(char *str, t_stack *stack)
 }
 
 /**
- * @brief Execute one valid instruction on the stacks.
+ * @brief Executes a single stack operation based on the input string.
  *
- * @param str Instruction line (must be valid).
- * @param stack Pointer to the t_stack structure.
+ * This function compares the given string to valid stack operation
+ * commands (like "sa", "pb", etc.) and performs the corresponding
+ * action on the provided stack structure.
+ *
+ * Operations handled here include swaps and pushes. If the instruction
+ * is not matched in this function, it is passed to ft_execute_move_2.
+ *
+ * @param str   The instruction string (e.g., "sa\n", "pb\n", etc.).
+ * @param stack Pointer to the t_stack structure containing both stacks.
  */
 static void	ft_execute_move(char *str, t_stack *stack)
 {
@@ -85,10 +106,14 @@ static void	ft_execute_move(char *str, t_stack *stack)
 }
 
 /**
- * @brief Read and execute all instructions from stdin.
+ * @brief Reads and applies stack operations from standard input.
  *
- * @param stack Pointer to the t_stack structure.
- * @return 0 if OK, 1 if error.
+ * This function reads one instruction per line from stdin and executes
+ * it on the provided stacks. If an invalid instruction is found, it stops
+ * and returns 1. Otherwise, it continues until EOF and returns 0.
+ *
+ * @param stack Pointer to the t_stack structure (stack a and stack b).
+ * @return 0 on success, 1 if an invalid instruction was encountered.
  */
 static int	ft_get_move(t_stack *stack)
 {
@@ -109,6 +134,19 @@ static int	ft_get_move(t_stack *stack)
 	return (0);
 }
 
+/**
+ * @brief Entry point for the checker program.
+ *
+ * Allocates and initializes the stacks, parses the input arguments into
+ * stack a, then reads and executes moves from standard input. After
+ * executing all moves, it checks if stack a is sorted and stack b is empty.
+ * Prints "OK" if sorted, "KO" otherwise. Frees all allocated memory before
+ * exiting.
+ *
+ * @param argc Number of command line arguments.
+ * @param argv Array of command line argument strings.
+ * @return 0 on success, 1 if an error occurs (invalid move or input).
+ */
 int	main(int argc, char **argv)
 {
 	t_stack	*stack;

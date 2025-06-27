@@ -6,12 +6,23 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 13:24:13 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/26 16:35:05 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/27 14:45:45 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief Entry point of push_swap program.
+ *
+ * Initializes the stack structure, parses input arguments into stack a,
+ * and sorts the stack using an appropriate algorithm based on size.
+ * Frees allocated memory before exiting.
+ *
+ * @param argc Number of arguments.
+ * @param argv Array of argument strings.
+ * @return 0 on successful completion.
+ */
 int	main(int argc, char **argv)
 {
 	t_stack	*stack;
