@@ -6,15 +6,14 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:33:27 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/27 16:13:06 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/27 16:14:27 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-// include
-
+// includes
 # include <unistd.h>
 # include <limits.h>
 # include "libft.h"
@@ -40,6 +39,7 @@ typedef struct s_stack
 // error.c
 void	ft_error(t_stack *stack);
 void	ft_error_split(t_stack *stack, char **split);
+
 // parse.c
 void	ft_parser(int argc, char **argv, t_stack *stack);
 void	ft_if_input_2(char **tmp, t_stack *stack);
