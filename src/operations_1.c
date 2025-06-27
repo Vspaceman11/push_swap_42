@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:32:58 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/23 15:48:51 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/27 13:40:53 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ss(t_stack *stack)
 	ft_printf("ss\n");
 }
 
-void	pa(t_stack *stack)
+void	pa(t_stack *stack, int helper)
 {
 	t_node	*top;
 
@@ -41,10 +41,11 @@ void	pa(t_stack *stack)
 	stack->b = stack->b->next;
 	top->next = stack->a;
 	stack->a = top;
-	ft_printf("pa\n");
+	if (helper == 0)
+		ft_printf("pa\n");
 }
 
-void	pb(t_stack *stack)
+void	pb(t_stack *stack, int helper)
 {
 	t_node	*top;
 
@@ -54,5 +55,6 @@ void	pb(t_stack *stack)
 	stack->a = stack->a->next;
 	top->next = stack->b;
 	stack->b = top;
-	ft_printf("pb\n");
+	if (helper == 0)
+		ft_printf("pb\n");
 }

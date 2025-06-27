@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 16:19:15 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/26 17:47:40 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/27 13:42:03 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ static void	ft_swap_dirty(t_stack *stack)
 		if (val_min > size - 3)
 			val_min = size - 3;
 		if (stack->a->value <= val_min)
-			pb(stack);
+			pb(stack, 0);
 		else if (stack->a->value >= size - val_min && size <= 200)
 		{
-			pb(stack);
+			pb(stack, 0);
 			rb(stack);
 		}
 		else
@@ -100,6 +100,6 @@ void	ft_sort_big(t_stack *stack)
 		ft_do_best_move(stack, best);
 	}
 	while (stack->b)
-		pa(stack);
+		pa(stack, 0);
 	ft_rotate_a_to_index_0(stack);
 }

@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 14:08:32 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/26 17:51:56 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/27 13:42:13 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,9 +136,9 @@ void	ft_sort_small(t_stack *stack)
 		else
 			while (stack->a->value != min)
 				rra(stack);
-		pb(stack);
+		pb(stack, 0);
 	}
 	ft_sort_three(stack);
 	while (stack->b)
-		pa(stack);
+		pa(stack, 0);
 }

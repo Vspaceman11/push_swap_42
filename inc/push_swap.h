@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:33:27 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/26 17:30:37 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/27 14:04:46 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_stack
 {
 	t_node	*a;
 	t_node	*b;
-	int		size;
+	// int		size;
 }	t_stack;
 
 // error.c
@@ -63,8 +63,8 @@ int		ft_stack_size(t_node *stack);
 void	sa(t_stack *stack);
 void	sb(t_stack *stack);
 void	ss(t_stack *stack);
-void	pa(t_stack *stack);
-void	pb(t_stack *stack);
+void	pa(t_stack *stack, int helper);
+void	pb(t_stack *stack, int helper);
 
 // operations_2.c
 void	ra(t_stack *stack);

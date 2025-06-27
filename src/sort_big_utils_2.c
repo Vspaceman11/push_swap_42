@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:04:25 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/26 17:50:46 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/27 13:41:50 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,5 +140,5 @@ void	ft_do_best_move(t_stack *stack, t_node *target)
 	}
 	do_rotate_a(stack, cost_a);
 	do_rotate_b(stack, cost_b);
-	pa(stack);
+	pa(stack, 0);
 }
