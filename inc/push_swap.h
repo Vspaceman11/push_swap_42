@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:33:27 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/27 14:04:46 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/27 16:13:06 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_stack
 {
 	t_node	*a;
 	t_node	*b;
-	// int		size;
 }	t_stack;
 
 // error.c
