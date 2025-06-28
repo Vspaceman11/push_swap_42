@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 13:24:13 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/27 14:45:45 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/28 10:27:37 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack;
 
+	if (argc < 2)
+		return (0);
 	stack = ft_calloc(1, sizeof(t_stack));
 	if (!stack)
 		ft_error(stack);

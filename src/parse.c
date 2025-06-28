@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:00:59 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/26 17:42:41 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/28 10:27:19 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,6 @@ void	ft_parser(int argc, char **argv, t_stack *stack)
 {
 	char	**tmp;
 
-	if (argc < 2)
-		ft_error(stack);
 	if (argc == 2)
 	{
 		tmp = ft_split(argv[1], ' ');
