@@ -6,7 +6,7 @@
 /*   By: vpushkar <vpushkar@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 16:19:15 by vpushkar          #+#    #+#             */
-/*   Updated: 2025/06/27 17:09:57 by vpushkar         ###   ########.fr       */
+/*   Updated: 2025/06/28 10:01:30 by vpushkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,5 @@ void	ft_sort_big(t_stack *stack)
 		best = ft_find_best_move(stack);
 		ft_do_best_move(stack, best);
 	}
-	while (stack->b)
-		pa(stack, 0);
 	ft_rotate_a_to_index_0(stack);
 }
